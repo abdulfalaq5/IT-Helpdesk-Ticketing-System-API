@@ -1,7 +1,7 @@
 const info = {
-  description: 'Report Management SSO Client API - Made with ❤ by <a href="https://github.com/abdulfalaq5" target="_blank">@abdulfalaq5.</a>',
+  description: 'IT Helpdesk / Ticketing System API with SSO Integration - Made with ❤ by <a href="https://github.com/abdulfalaq5" target="_blank">@abdulfalaq5.</a>',
   version: '1.0.0',
-  title: 'Report Management SSO Client API Documentation',
+  title: 'IT Helpdesk / Ticketing System API Documentation',
   contact: {
     email: ''
   },
@@ -24,18 +24,25 @@ const servers = [
 
 // Import schemas
 const ssoSchema = require('./schema/sso');
+const ticketingSchema = require('./schema/ticketing');
 
 // Import paths
 const ssoPaths = require('./path/sso');
+const ticketingPaths = require('./path/ticketing');
+
+// Import responses
+const commonResponses = require('./responses/common');
 
 // Combine all schemas
 const schemas = {
-  ...ssoSchema
+  ...ssoSchema,
+  ...ticketingSchema
 };
 
 // Combine all paths
 const paths = {
-  ...ssoPaths
+  ...ssoPaths,
+  ...ticketingPaths
 };
 
 const index = {
@@ -51,7 +58,8 @@ const index = {
         bearerFormat: 'JWT'
       }
     },
-    schemas
+    schemas,
+    responses: commonResponses
   }
 }
 
